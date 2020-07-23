@@ -1,0 +1,12 @@
+GET http://localhost/form
+
+###
+
+POST http://localhost/form
+Content-Type: application/json
+
+{
+"name" : "MegaMarsel"
+}
+
+###

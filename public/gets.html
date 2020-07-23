@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+            integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<script> function getAllData() {
+        $.getJSON("/data", function (response) {
+let html = "<table>";
+for (let i = 0; i < response.length; i++) {
+    html += "<tr>";
+    html += "<td>" + response[i]["firstName"] + "</td>";
+    html += "<td>" + response[i]["lastName"] + "</td>";
+    html += "<td>" + response[i]["email"] + "</td>";
+    html += "<td>" + response[i]["message"] + "</td>";
+    html += "</tr>";
+}
+html += "</table>";
+$("#data_table").append(html);
+});
+}</script>
+<body>
+<button onclick="getAllData()">Получить данные</button>
+<div id="data_table"></div>
+</body>
+</html>
